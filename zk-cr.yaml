@@ -1,0 +1,11 @@
+apiVersion: webapp.my.domain/v1
+kind: ZooKeeperCluster
+metadata:
+  labels:
+    zk: myzk
+  name: myzk1
+spec:
+  foo: lyl
+  replicas: 2
+  image: zookeeper
+  version: 3.4.1
