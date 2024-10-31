@@ -23,59 +23,42 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// DeployObjectSpec defines the desired state of DeployObject
-type DeployObjectSpec struct {
+// ZooKeeperClusterSpec defines the desired state of ZooKeeperCluster
+type ZooKeeperClusterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-        // Replicas is pod replica num
-	Replicas *int32 `json:"replicas"`
-
-	// +kubebuilder:validation:MinLength=0
-
-	// Image is container image address
-	Image string `json:"image"`
-
-	// Resources describes the compute resource requirements
-	// +optional
-	Resources corev1.ResourceRequirements `json:"resources,omitempty"`
-
-	// EnvVar represents an environment variable present in a Container.
-	// +optional
-	Env []corev1.EnvVar `json:"env,omitempty"`
-
-	// ServicePort contains information on service's port.
-	Ports []corev1.ServicePort `json:"ports"`
+	// Foo is an example field of ZooKeeperCluster. Edit zookeepercluster_types.go to remove/update
+	Foo string `json:"foo,omitempty"`
 }
 
-// DeployObjectStatus defines the observed state of DeployObject
-type DeployObjectStatus struct {
+// ZooKeeperClusterStatus defines the observed state of ZooKeeperCluster
+type ZooKeeperClusterStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-	appsv1.DeploymentStatus `json:",inline"`
 }
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 
-// DeployObject is the Schema for the deployobjects API
-type DeployObject struct {
+// ZooKeeperCluster is the Schema for the zookeeperclusters API
+type ZooKeeperCluster struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   DeployObjectSpec   `json:"spec,omitempty"`
-	Status DeployObjectStatus `json:"status,omitempty"`
+	Spec   ZooKeeperClusterSpec   `json:"spec,omitempty"`
+	Status ZooKeeperClusterStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// DeployObjectList contains a list of DeployObject
-type DeployObjectList struct {
+// ZooKeeperClusterList contains a list of ZooKeeperCluster
+type ZooKeeperClusterList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []DeployObject `json:"items"`
+	Items           []ZooKeeperCluster `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&DeployObject{}, &DeployObjectList{})
+	SchemeBuilder.Register(&ZooKeeperCluster{}, &ZooKeeperClusterList{})
 }

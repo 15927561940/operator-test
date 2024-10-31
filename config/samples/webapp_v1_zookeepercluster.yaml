@@ -1,9 +1,9 @@
-apiVersion: app.my.domain/v1
-kind: DeployObject
+apiVersion: webapp.my.domain/v1
+kind: ZooKeeperCluster
 metadata:
   labels:
     app.kubernetes.io/name: operator-test
     app.kubernetes.io/managed-by: kustomize
-  name: deployobject-sample
+  name: zookeepercluster-sample
 spec:
   # TODO(user): Add fields here

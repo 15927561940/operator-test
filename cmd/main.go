@@ -35,7 +35,7 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	appv1 "my.domain/api/v1"
+	webappv1 "my.domain/api/v1"
 	"my.domain/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
@@ -48,7 +48,7 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(appv1.AddToScheme(scheme))
+	utilruntime.Must(webappv1.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
@@ -144,11 +144,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controller.DeployObjectReconciler{
+	if err = (&controller.ZooKeeperClusterReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "DeployObject")
+		setupLog.Error(err, "unable to create controller", "controller", "ZooKeeperCluster")
 		os.Exit(1)
 	}
 	// +kubebuilder:scaffold:builder

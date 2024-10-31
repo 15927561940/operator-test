@@ -24,29 +24,29 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	appv1 "my.domain/api/v1"
+	webappv1 "my.domain/api/v1"
 )
 
-// DeployObjectReconciler reconciles a DeployObject object
-type DeployObjectReconciler struct {
+// ZooKeeperClusterReconciler reconciles a ZooKeeperCluster object
+type ZooKeeperClusterReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=app.my.domain,resources=deployobjects,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=app.my.domain,resources=deployobjects/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=app.my.domain,resources=deployobjects/finalizers,verbs=update
+// +kubebuilder:rbac:groups=webapp.my.domain,resources=zookeeperclusters,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=webapp.my.domain,resources=zookeeperclusters/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=webapp.my.domain,resources=zookeeperclusters/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
 // TODO(user): Modify the Reconcile function to compare the state specified by
-// the DeployObject object against the actual cluster state, and then
+// the ZooKeeperCluster object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
 // the user.
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.19.0/pkg/reconcile
-func (r *DeployObjectReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *ZooKeeperClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
@@ -55,8 +55,8 @@ func (r *DeployObjectReconciler) Reconcile(ctx context.Context, req ctrl.Request
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *DeployObjectReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *ZooKeeperClusterReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&appv1.DeployObject{}).
+		For(&webappv1.ZooKeeperCluster{}).
 		Complete(r)
 }

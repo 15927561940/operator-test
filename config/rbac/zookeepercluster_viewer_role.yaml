@@ -1,27 +1,23 @@
-# permissions for end users to edit deployobjects.
+# permissions for end users to view zookeeperclusters.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: operator-test
     app.kubernetes.io/managed-by: kustomize
-  name: deployobject-editor-role
+  name: zookeepercluster-viewer-role
 rules:
 - apiGroups:
-  - app.my.domain
+  - webapp.my.domain
   resources:
-  - deployobjects
+  - zookeeperclusters
   verbs:
-  - create
-  - delete
   - get
   - list
-  - patch
-  - update
   - watch
 - apiGroups:
-  - app.my.domain
+  - webapp.my.domain
   resources:
-  - deployobjects/status
+  - zookeeperclusters/status
   verbs:
   - get

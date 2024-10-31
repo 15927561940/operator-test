@@ -1,4 +1,4 @@
 ## Append samples of your project ##
 resources:
-- app_v1_deployobject.yaml
+- webapp_v1_zookeepercluster.yaml
 # +kubebuilder:scaffold:manifestskustomizesamples

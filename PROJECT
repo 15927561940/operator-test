@@ -13,8 +13,8 @@ resources:
     namespaced: true
   controller: true
   domain: my.domain
-  group: app
-  kind: DeployObject
+  group: webapp
+  kind: ZooKeeperCluster
   path: my.domain/api/v1
   version: v1
 version: "3"
